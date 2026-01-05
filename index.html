@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book Auto Clean - Professional Auto Detailing Services. Find local detailers and book appointments online.">
+    <title>Book Auto Clean - Professional Auto Detailing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231e3c72" width="1200" height="600"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            background: #ff8555;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.3);
+        }
+
+        /* Find Detailer Section */
+        .find-detailer {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .find-detailer h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+        }
+
+        .find-detailer p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .zip-search {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .zip-search input {
+            flex: 1;
+            padding: 15px;
+            font-size: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .zip-search button {
+            padding: 15px 30px;
+            background: #1e3c72;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .zip-search button:hover {
+            background: #2a5298;
+        }
+
+        /* Featured Detailer */
+        .featured-detailer {
+            background: #f8f9fa;
+            padding: 60px 20px;
+            margin-top: 60px;
+        }
+
+        .featured-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .featured-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .featured-header h2 {
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+
+        .detailer-card {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .detailer-info h3 {
+            font-size: 2rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .rating {
+            font-size: 1.5rem;
+            color: #ffc107;
+            margin-bottom: 1rem;
+        }
+
+        .detailer-details {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .detailer-details strong {
+            color: #333;
+        }
+
+        /* Features */
+        .features {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+        }
+
+        .feature p {
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .zip-search {
+                flex-direction: column;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">📍 Book Auto Clean</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#find">Find a Detailer</a></li>
+                <li><a href="#book">Book Now</a></li>
+                <li><a href="#login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Premium Auto Detailing at Your Fingertips</h1>
+        <p>Connect with professional auto detailers in your area</p>
+        <a href="#book" class="cta-button">Book Your Detail Now</a>
+    </section>
+
+    <section class="find-detailer" id="find">
+        <h2>Find a Detailer Near You</h2>
+        <p>Enter your zip code to discover local auto detailing professionals</p>
+        <div class="zip-search">
+            <input type="text" placeholder="Enter your zip code" id="zipCode" maxlength="5">
+            <button onclick="searchDetailers()">Search</button>
+        </div>
+    </section>
+
+    <section class="featured-detailer">
+        <div class="featured-content">
+            <div class="featured-header">
+                <span class="featured-badge">⭐ FEATURED DETAILER</span>
+                <h2>Recommended for You</h2>
+            </div>
+            <div class="detailer-card">
+                <div class="detailer-info">
+                    <h3>Elevated Auto Detail</h3>
+                    <div class="rating">⭐⭐⭐⭐⭐ (5.0)</div>
+                    <div class="detailer-details">
+                        <p><strong>Location:</strong> Hays, KS</p>
+                        <p><strong>Experience:</strong> 5+ Years</p>
+                        <p><strong>Specialty:</strong> Premium Auto Detailing & Truck Polishing</p>
+                        <p><strong>About:</strong> Fort Hays State Tiger alumni and one of the best in the business. Trusted by hundreds of satisfied customers for exceptional attention to detail and professional service.</p>
+                    </div>
+                    <a href="#book" class="cta-button">Book with Elevated Auto Detail</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <div class="feature-icon">📅</div>
+            <h3>Easy Booking</h3>
+            <p>Schedule your appointment online 24/7 with real-time availability</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">💳</div>
+            <h3>Flexible Payment</h3>
+            <p>Accept PayPal, Venmo, and Cash App for your convenience</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🚗</div>
+            <h3>Mobile Service</h3>
+            <p>We come to you! Mobile detailing available at your location</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">⭐</div>
+            <h3>Top-Rated Pros</h3>
+            <p>All detailers are verified and highly rated by customers</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Book Auto Clean. All rights reserved.</p>
+        <p>Professional Auto Detailing Services | Hays, KS & Beyond</p>
+    </footer>
+
+    <script>
+        function searchDetailers() {
+            const zipCode = document.getElementById('zipCode').value;
+            if (zipCode.length === 5) {
+                alert('Searching for detailers near ' + zipCode + '...\nFull booking system coming soon!');
+                // Future: This will connect to your booking system
+            } else {
+                alert('Please enter a valid 5-digit zip code');
+            }
+        }
+
+        // Allow Enter key to search
+        document.getElementById('zipCode').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchDetailers();
+            }
+        });
+    </script>
+</body>
+</html>
