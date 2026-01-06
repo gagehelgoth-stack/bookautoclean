@@ -32,11 +32,15 @@
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #1a2332 0%, #2d3748 50%, #1a2332 100%);
+            background:
+                linear-gradient(135deg, rgba(26, 35, 50, 0.95) 0%, rgba(45, 55, 72, 0.95) 50%, rgba(26, 35, 50, 0.95) 100%),
+                url('data:image/svg+xml,<svg width="60" height="52" viewBox="0 0 60 52" xmlns="http://www.w3.org/2000/svg"><path d="M30 0 L45 8.66 L45 25.98 L30 34.64 L15 25.98 L15 8.66 Z" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><path d="M0 26 L15 17.34 L15 34.66 L0 43.32 L-15 34.66 L-15 17.34 Z" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><path d="M60 26 L75 17.34 L75 34.66 L60 43.32 L45 34.66 L45 17.34 Z" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/></svg>');
+            background-size: auto, 60px 52px;
             color: white;
             padding: 1.5rem 0;
             box-shadow: 0 4px 12px rgba(0, 212, 255, 0.2);
             border-bottom: 2px solid var(--cyan-blue);
+            position: relative;
         }
 
         nav {
