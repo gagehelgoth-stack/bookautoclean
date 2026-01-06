@@ -6,6 +6,18 @@
     <meta name="description" content="Book Auto Clean - Professional Auto Detailing Services. Find local detailers and book appointments online.">
     <title>Book Auto Clean - Professional Auto Detailing</title>
     <style>
+        :root {
+            /* Elevated Auto Detail Brand Colors */
+            --cyan-blue: #00D4FF;
+            --hot-pink: #FF1B8D;
+            --sunset-yellow: #FFB800;
+            --sunset-orange: #FF8C00;
+            --purple: #7B2CBF;
+            --dark-navy: #1a2332;
+            --charcoal: #2d3748;
+            --white: #ffffff;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -20,10 +32,11 @@
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, #1a2332 0%, #2d3748 50%, #1a2332 100%);
             color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 212, 255, 0.2);
+            border-bottom: 2px solid var(--cyan-blue);
         }
 
         nav {
@@ -36,8 +49,22 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--cyan-blue), var(--hot-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-subtitle {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--cyan-blue);
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
         .nav-links {
@@ -49,53 +76,96 @@
         .nav-links a {
             color: white;
             text-decoration: none;
-            transition: opacity 0.3s;
+            transition: all 0.3s;
+            font-weight: 500;
+            position: relative;
         }
 
         .nav-links a:hover {
-            opacity: 0.8;
+            color: var(--cyan-blue);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--cyan-blue), var(--hot-pink));
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231e3c72" width="1200" height="600"/></svg>');
+            background: linear-gradient(135deg, rgba(26, 35, 50, 0.95), rgba(123, 44, 191, 0.85)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231a2332" width="1200" height="600"/></svg>');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
-            padding: 120px 20px;
+            padding: 140px 20px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(0, 212, 255, 0.1), transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(255, 27, 141, 0.1), transparent 50%);
+            pointer-events: none;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 1;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            position: relative;
+            z-index: 1;
+            font-style: italic;
         }
 
         .cta-button {
             display: inline-block;
-            background: #ff6b35;
+            background: linear-gradient(135deg, var(--cyan-blue), var(--hot-pink));
             color: white;
-            padding: 15px 40px;
+            padding: 18px 45px;
             text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
             font-weight: bold;
-            transition: background 0.3s, transform 0.2s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-button:hover {
-            background: #ff8555;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, var(--hot-pink), var(--sunset-orange));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 27, 141, 0.5);
         }
 
         /* Find Detailer Section */
@@ -109,7 +179,10 @@
         .find-detailer h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: #1e3c72;
+            color: var(--dark-navy);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .find-detailer p {
@@ -134,19 +207,24 @@
         }
 
         .zip-search button {
-            padding: 15px 30px;
-            background: #1e3c72;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, var(--cyan-blue), var(--purple));
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 25px;
             font-size: 1rem;
             font-weight: bold;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
         }
 
         .zip-search button:hover {
-            background: #2a5298;
+            background: linear-gradient(135deg, var(--purple), var(--hot-pink));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 27, 141, 0.4);
         }
 
         /* Featured Detailer */
@@ -168,32 +246,52 @@
 
         .featured-badge {
             display: inline-block;
-            background: #ff6b35;
+            background: linear-gradient(135deg, var(--sunset-orange), var(--hot-pink));
             color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
+            padding: 10px 25px;
+            border-radius: 25px;
             font-weight: bold;
             margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
         }
 
         .featured-header h2 {
             font-size: 2.5rem;
-            color: #1e3c72;
+            color: var(--dark-navy);
             margin-bottom: 0.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .detailer-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 15px;
             padding: 40px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.15);
             text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .detailer-card:hover {
+            border-color: var(--cyan-blue);
+            box-shadow: 0 12px 40px rgba(0, 212, 255, 0.25);
+            transform: translateY(-5px);
         }
 
         .detailer-info h3 {
-            font-size: 2rem;
-            color: #1e3c72;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--cyan-blue), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .rating {
@@ -241,7 +339,8 @@
         .feature h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #1e3c72;
+            color: var(--dark-navy);
+            font-weight: 700;
         }
 
         .feature p {
@@ -250,11 +349,22 @@
 
         /* Footer */
         footer {
-            background: #1e3c72;
+            background: linear-gradient(135deg, var(--dark-navy) 0%, var(--charcoal) 50%, var(--dark-navy) 100%);
             color: white;
             text-align: center;
-            padding: 30px 20px;
+            padding: 40px 20px;
             margin-top: 60px;
+            border-top: 3px solid var(--cyan-blue);
+            box-shadow: 0 -4px 20px rgba(0, 212, 255, 0.2);
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer p:first-child {
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
         /* Responsive */
@@ -284,7 +394,10 @@
 <body>
     <header>
         <nav>
-            <div class="logo">📍 Book Auto Clean</div>
+            <div>
+                <div class="logo">ELEVATED</div>
+                <div class="logo-subtitle">Auto Detail</div>
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#find">Find a Detailer</a></li>
@@ -296,8 +409,8 @@
 
     <section class="hero">
         <h1>Premium Auto Detailing at Your Fingertips</h1>
-        <p>Connect with professional auto detailers in your area</p>
-        <a href="#book" class="cta-button">Book Your Detail Now</a>
+        <p>Experience the ELEVATED difference - Fort Hays State Tiger quality you can trust</p>
+        <a href="#book" class="cta-button">Book with Elevated Now</a>
     </section>
 
     <section class="find-detailer" id="find">
@@ -312,20 +425,22 @@
     <section class="featured-detailer">
         <div class="featured-content">
             <div class="featured-header">
-                <span class="featured-badge">⭐ FEATURED DETAILER</span>
-                <h2>Recommended for You</h2>
+                <span class="featured-badge">⭐ #1 PREMIER DETAILER - ELEVATED AUTO DETAIL</span>
+                <h2>The Best Choice for Your Vehicle</h2>
             </div>
             <div class="detailer-card">
                 <div class="detailer-info">
-                    <h3>Elevated Auto Detail</h3>
-                    <div class="rating">⭐⭐⭐⭐⭐ (5.0)</div>
+                    <h3>ELEVATED Auto Detail</h3>
+                    <div class="rating">⭐⭐⭐⭐⭐ (5.0) - Top Rated</div>
                     <div class="detailer-details">
-                        <p><strong>Location:</strong> Hays, KS</p>
-                        <p><strong>Experience:</strong> 5+ Years</p>
-                        <p><strong>Specialty:</strong> Premium Auto Detailing & Truck Polishing</p>
-                        <p><strong>About:</strong> Fort Hays State Tiger alumni and one of the best in the business. Trusted by hundreds of satisfied customers for exceptional attention to detail and professional service.</p>
+                        <p><strong>Owner:</strong> Fort Hays State Tiger Alumni</p>
+                        <p><strong>Location:</strong> Hays, KS & Surrounding Areas</p>
+                        <p><strong>Experience:</strong> 5+ Years of Professional Excellence</p>
+                        <p><strong>Specialty:</strong> Premium Auto Detailing & Expert Truck Polishing</p>
+                        <p style="margin-top: 15px; font-size: 1.1rem;"><strong>About ELEVATED:</strong> One of the absolute best in the business. ELEVATED Auto Detail brings Fort Hays State Tiger pride and precision to every vehicle. Trusted by hundreds of satisfied customers for exceptional attention to detail, professional service, and results that exceed expectations every single time.</p>
+                        <p style="margin-top: 10px; color: var(--cyan-blue); font-weight: 600;">✓ Mobile Service Available | ✓ Same-Day Appointments | ✓ 100% Satisfaction Guaranteed</p>
                     </div>
-                    <a href="#book" class="cta-button">Book with Elevated Auto Detail</a>
+                    <a href="#book" class="cta-button">Book ELEVATED Auto Detail Now</a>
                 </div>
             </div>
         </div>
@@ -355,8 +470,9 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 Book Auto Clean. All rights reserved.</p>
-        <p>Professional Auto Detailing Services | Hays, KS & Beyond</p>
+        <p>&copy; 2026 Book Auto Clean | Powered by ELEVATED Auto Detail</p>
+        <p>Premium Auto Detailing Services | Hays, KS & Beyond</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">Fort Hays State Tiger Quality - One of the Best in the Business</p>
     </footer>
 
     <script>
