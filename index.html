@@ -132,6 +132,7 @@
             text-align: center;
             padding: 140px 20px;
             position: relative;
+            overflow: hidden;
         }
 
         .hero::before {
@@ -144,6 +145,19 @@
             background: radial-gradient(circle at 30% 50%, rgba(0, 212, 255, 0.1), transparent 50%),
                         radial-gradient(circle at 70% 50%, rgba(255, 27, 141, 0.1), transparent 50%);
             pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-mountains {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 1000px;
+            height: 400px;
+            opacity: 0.3;
+            z-index: 0;
         }
 
         .hero h1 {
@@ -154,7 +168,7 @@
             text-transform: uppercase;
             letter-spacing: 3px;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .hero p {
@@ -162,7 +176,7 @@
             margin-bottom: 2.5rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
             position: relative;
-            z-index: 1;
+            z-index: 2;
             font-style: italic;
         }
 
@@ -180,7 +194,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .cta-button:hover {
@@ -444,6 +458,28 @@
     </header>
 
     <section class="hero">
+        <!-- Large Mountain Background -->
+        <svg class="hero-mountains" viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
+            <!-- Large mountain range with black fill and white outline -->
+            <path d="M 0 400 L 150 150 L 250 220 L 350 80 L 450 180 L 550 50 L 650 160 L 750 100 L 850 200 L 1000 400 Z"
+                  fill="#000000"
+                  stroke="#ffffff"
+                  stroke-width="4"
+                  stroke-linejoin="miter"/>
+            <!-- Lightning bolt accent on tallest peak -->
+            <path d="M 550 50 L 540 100 L 555 100 L 545 150"
+                  fill="none"
+                  stroke="var(--cyan-blue)"
+                  stroke-width="3.5"
+                  stroke-linecap="round"/>
+            <!-- Additional lightning on second peak -->
+            <path d="M 350 80 L 345 120 L 355 120 L 350 160"
+                  fill="none"
+                  stroke="var(--hot-pink)"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  opacity="0.8"/>
+        </svg>
         <h1>Premium Auto Detailing at Your Fingertips</h1>
         <p>Experience the ELEVATED difference - Fort Hays State Tiger quality you can trust</p>
         <a href="#book" class="cta-button">Book with Elevated Now</a>
